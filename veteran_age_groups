@@ -1,0 +1,17 @@
+import pandas as pd
+#import numpy as np
+
+age_groups = pd.read_csv('veoa.csv')
+#print(age_groups.head(10))
+
+age_groups_clean = age_groups[['cohort', 'cohort_years', 'agegrp', 'y1_emp', 'y5_emp', 'y10_emp', 'y1_nonemp', 'y5_nonemp', 'y10_nonemp', 'y1_p25_earnings','y5_p25_earnings','y10_p25_earnings','y1_p50_earnings','y5_p50_earnings','y10_p50_earnings','y1_p75_earnings','y5_p75_earnings','y10_p75_earnings']]
+#print(age_groups_clean)
+
+age_group_employed = age_groups[['cohort', 'cohort_years', 'agegrp', 'y1_emp', 'y5_emp', 'y10_emp', 'y1_nonemp', 'y5_nonemp', 'y10_nonemp']]
+print(age_group_employed)
+
+age_all_years = age_group_employed[1:3]
+#print(age_all_years)
+
+age_all_years['y1_difference'] = age_all_years.y1_emp - age_all_years.y1_nonemp
+#print(age_all_years)
